@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+
+  --color-brand-50: #eefaf1;
+  --color-brand-100: #d7f2df;
+  --color-brand-200: #b1e5c1;
+  --color-brand-300: #80d19e;
+  --color-brand-400: #4bb579;
+  --color-brand-500: #2c9a5f;
+  --color-brand-600: #1d7c4b;
+  --color-brand-700: #19643f;
+  --color-brand-800: #164f34;
+  --color-brand-900: #12412c;
+
+  --color-accent-50: #eaf5ff;
+  --color-accent-100: #d2e9ff;
+  --color-accent-200: #a9d4ff;
+  --color-accent-300: #75b8ff;
+  --color-accent-400: #3f93fb;
+  --color-accent-500: #1d74e8;
+  --color-accent-600: #1259c0;
+  --color-accent-700: #124896;
+  --color-accent-800: #143c79;
+  --color-accent-900: #143365;
+
+  --color-ink-50: #f6f7f9;
+  --color-ink-100: #eceef2;
+  --color-ink-200: #d7dbe3;
+  --color-ink-300: #b3bac8;
+  --color-ink-400: #8892a6;
+  --color-ink-500: #67728a;
+  --color-ink-600: #515a70;
+  --color-ink-700: #414859;
+  --color-ink-800: #2b3040;
+  --color-ink-900: #191c27;
+  --color-ink-950: #0f111a;
+}
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink-50);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-200);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-300);
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-lg border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-800 placeholder:text-ink-300 outline-none transition-shadow focus:ring-2 focus:ring-brand-300 focus:border-brand-400;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-brand-700 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-ink-200 bg-white px-4 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-ink-50;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-rose-50 px-3.5 py-2 text-sm font-medium text-rose-600 transition-colors hover:bg-rose-100;
+  }
+
+  .btn-icon {
+    @apply inline-flex items-center justify-center rounded-lg p-2 text-ink-400 transition-colors hover:bg-ink-100 hover:text-ink-700;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt,
+  #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  @page {
+    margin: 12mm;
+  }
+}
