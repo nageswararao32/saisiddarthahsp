@@ -102,7 +102,7 @@ export default function Login() {
           className="relative"
         >
           <p className="inline-flex items-center gap-1.5 text-xs font-medium text-white/80 bg-white/10 rounded-full px-3 py-1 mb-5">
-            <Sparkles size={13} /> One connected patient-credit journey
+            One connected patient-credit journey
           </p>
           <h1 className="text-3xl xl:text-4xl font-semibold leading-tight mb-4">
             Hospital billing, patient loyalty and oversight — in one workflow.
